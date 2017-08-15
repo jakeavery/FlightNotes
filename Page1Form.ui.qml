@@ -7,61 +7,68 @@ Item {
     height: 768
 
     ScrollView {
+        id: scrollView
         x: 0
         y: 0
         width: parent.width
         height: parent.height
-        contentHeight: contentItem.childrenRect.height
+        contentWidth: 1024
+        contentHeight: 2000
 
-        ColumnLayout {
-            id: columnLayout3
+        Rectangle {
+            id: rectangle
             width: 1024
-            height: contentItem.childrenRect.height
-            spacing: 300
+            height: 2000
+            color: "#97a926"
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.top: parent.top
+            anchors.topMargin: 0
+            z: -1
 
-            RowLayout {
-                id: rowLayout
-                width: 100
-                height: 100
+            ColumnLayout {
+                id: columnLayout3
+                width: 1024
+                height: contentItem.childrenRect.height
+                spacing: 300
 
-                Switch {
-                    id: switch1
-                    text: qsTr("Switch")
+                RowLayout {
+                    id: rowLayout
+                    width: 100
+                    height: 100
+
+                    Switch {
+                        id: switch1
+                        text: qsTr("Switch")
+                    }
                 }
-            }
 
-            RowLayout {
-                id: rowLayout1
-                width: 100
-                height: 100
+                RowLayout {
+                    id: rowLayout1
+                    width: 100
+                    height: 100
 
-                TextField {
-                    id: textField
-                    text: qsTr("Text Field")
+                    TextField {
+                        id: textField
+                        text: qsTr("Text Field")
+                    }
+
+                    TextField {
+                        id: textField1
+                        text: qsTr("Text Field")
+                    }
                 }
 
-                TextField {
-                    id: textField1
-                    text: qsTr("Text Field")
+                RowLayout {
+                    id: rowLayout2
+                    width: 100
+                    height: 100
+
+                    TextField {
+                        id: textField2
+                        text: qsTr("Text Field")
+                    }
                 }
-            }
-
-            RowLayout {
-                id: rowLayout2
-                width: 100
-                height: 100
-
-                TextField {
-                    id: textField2
-                    text: qsTr("Text Field")
-                }
-            }
-
-            Rectangle {
-                id: rectangle
-                height: 2000
-                color: "#97a926"
-                z: -1
             }
         }
     }
