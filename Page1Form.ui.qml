@@ -29,7 +29,6 @@ Item {
             ColumnLayout {
                 id: columnLayout3
                 width: 1024
-                height: contentItem.childrenRect.height
                 spacing: 300
 
                 RowLayout {
