@@ -7,43 +7,42 @@ Item {
     height: 768
     property alias scrollView: scrollView
 
+    // handle clicks on empty area
+    MouseArea {
+        anchors.fill: parent
+        onClicked: scrollView.currentIndex = -1
+    }
+
     ScrollView {
         id: scrollView
-        x: 0
-        y: 0
-        width: parent.width
-        height: parent.height
+        anchors.fill: parent
         contentWidth: 1024
         contentHeight: 2000
 
+        // background
         Rectangle {
             id: rectangle
-            width: 1024
-            height: 2000
+            anchors.fill: parent
             color: "#97a926"
-            enabled: true
-            anchors.left: parent.left
-            anchors.leftMargin: 0
-            anchors.top: parent.top
-            anchors.topMargin: 0
-            z: -1
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: scrollView.currentIndex = index
+            }
 
             ColumnLayout {
                 id: columnLayout3
                 width: 1024
-                z: 1
                 spacing: 300
 
                 RowLayout {
                     id: rowLayout
                     width: 100
                     height: 100
-                    z: 3
 
                     Switch {
                         id: switch1
                         text: qsTr("Switch")
-                        z: 1
                     }
                 }
 
@@ -51,20 +50,17 @@ Item {
                     id: rowLayout1
                     width: 100
                     height: 100
-                    z: 2
 
                     TextField {
                         selectByMouse: true
                         id: textField
                         text: qsTr("Text Field")
-                        z: 1
                     }
 
                     TextField {
                         selectByMouse: true
                         id: textField1
                         text: qsTr("Text Field")
-                        z: 2
                     }
                 }
 
@@ -72,13 +68,11 @@ Item {
                     id: rowLayout2
                     width: 100
                     height: 100
-                    z: 1
 
                     TextField {
                         selectByMouse: true
                         id: textField2
                         text: qsTr("Text Field")
-                        z: 1
                     }
                 }
             }
